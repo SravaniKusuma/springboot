@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Student Details</title>
+
+
+</head>
+<body>
+<div class="container">
+
+    <br><br><br>
+
+    <h3 style="text-align:center">Student Information</h3>
+    <br><hr><br>
+    <!-- Add a button -->
+   <!--<a th:href="@{/courses(studentId=${student.Id})}"
+       class="btn btn-primary btn-sm mb-3">Courses Offered</a>-->
+    <a th:href="@{/update-student(studentId=${student.id})}" class="btn  btn-sm btn btn-primary">Update Details</a>
+    <br><br><br>
+
+
+
+    <table class="table table-bordered table-striped">
+        <tbody>
+        <tr>
+            <td>First Name</td>
+            <td th:text="${student.firstName}" />
+        </tr>
+
+        <tr>
+            <td>Last Name</td>
+            <td th:text="${student.lastName}" />
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td th:text="${student.email}" />
+        </tr>
+
+        <tr>
+            <td>Phone Number</td>
+            <td th:text="${student.phoneNumber}" />
+        </tr>
+
+        <tr>
+            <td rowspan="15">Courses Enrolled</td>
+        </tr>
+
+        <tr th:each="tempCourse: ${student.getCourses}">
+                <td th:text="${tempCourse.courseName}" />
+        </tr>
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <a th:href="@{/student-home(studentId=${student.id})}"  class="btn  btn-sm btn btn-primary" >Back to Home Page</a>
+    <br><br><br>
+
+
+</div>
+
+</body>
+</html>

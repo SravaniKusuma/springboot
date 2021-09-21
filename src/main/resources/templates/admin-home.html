@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Management App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+
+</head>
+<body >
+<div class="container" style="text-align:center">
+
+    <br><br><br>
+    <br><br>
+
+    <h1 class="hello">Welcome to Admin Home Page</h1>
+
+    <br><hr><br>
+    <h3 ><a th:href="@{/admin/list-courses}" class="btn  btn-lg btn btn-primary">Courses Offered</a></h3>
+    <br><br>
+    <h3 ><a th:href="@{/admin/students-enrolled}" class="btn  btn-lg btn btn-primary">Students enrolled</a></h3>
+    <br><br>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit"   class="btn  btn-lg  btn btn-primary" value=" Logout"/>
+    </form>
+</div>
+
+
+</body>
+
+</html>

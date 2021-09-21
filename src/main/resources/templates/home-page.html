@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Management App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+
+</head>
+<body >
+<div class="container" style="text-align:center">
+
+<br><br><br>
+    <br><br>
+
+<h1 class="hello">Welcome to Student Management System</h1>
+
+<br><hr><br>
+    <h4>New user </h4>
+<h3 ><a th:href="@{/register}" class="btn  btn-lg btn btn-primary"> Student Register</a></h3>
+<br><br>
+    <h4>Already a user</h4>
+<h3><a th:href="@{/login}" class="btn  btn-lg btn btn-primary"> Login</a></h3>
+
+</div>
+
+
+</body>
+</html>

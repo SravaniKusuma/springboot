@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Management App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+
+</head>
+<body>
+<div class="container">
+
+    <br><br><br><br>
+    <h3>You are already enrolled for this course</h3>
+    <br><br><br><br>
+    <a th:href="@{/courses(studentId=${student.id})}"  class="btn  btn-sm btn btn-primary">Back to courses page</a>
+</div>
+
+</body>
+</html>

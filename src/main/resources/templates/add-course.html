@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Add Course</title>
+    <style>
+        .error
+        {
+        color:red;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container text-center" >
+    <br><br>
+
+    <div>
+        <h1>Save Course</h1>
+    </div>
+
+    <br><br>
+
+    <hr>
+
+    <br><br>
+
+
+    <form action="#" th:action="@{/admin/saveCourse}"
+          th:object="${course}" method="POST" style="max-width: 600px; margin: 0 auto;">
+
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Course Name</label>
+                <div class="col-8">
+                    <input type="text" th:field="*{courseName}" class="form-control"
+                           placeholder="Course Name" />
+                    <p th:if ="${#fields.hasErrors('courseName')}" th:errorclass="error" th:errors="*{courseName}" />
+
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Rating </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{rating}" class="form-control"
+                           placeholder="Rating" />
+                    <p th:if ="${#fields.hasErrors('rating')}" th:errorclass="error" th:errors="*{rating}" />
+
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Instructor Name</label>
+                <div class="col-8">
+                    <input type="text" th:field="*{instructorName}" class="form-control"
+                           placeholder="Instructor Name" />
+                    <p th:if ="${#fields.hasErrors('instructorName')}" th:errorclass="error" th:errors="*{instructorName}" />
+
+
+                </div>
+            </div>
+
+            <br><br>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Save Course</button>
+            </div>
+        </div>
+    </form>
+
+    <br><br>
+
+    <hr>
+    <a th:href="@{/admin/list-courses}"  class="btn  btn-sm btn btn-primary" >Back to Courses List</a>
+</div>
+
+
+</body>
+</html>

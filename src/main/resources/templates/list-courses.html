@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/course.css}" rel="stylesheet" />
+
+    <title>Courses Offered</title>
+</head>
+<body>
+
+<div class="container" style="text-align:center">
+
+    <br><br>
+    <h3>Courses Offered</h3>
+    <br><br>
+    <a th:href="@{/student-home(studentId=${student.id})}"  class="btn  btn-sm btn btn-primary" >Back to Home Page</a>
+    <br><br><br>
+    <div class="row">
+        <div class="col-sm-3"  th:each="tempCourse : ${courses}">
+            <div class="card">
+                <div class="card-block" >
+
+                    <h4 class="card-title text-white bg-secondary " th:text="${tempCourse.courseName}"></h4>
+                    <p class="card-text" th:text="'Rating:        '+${tempCourse.rating}">Rating:</p>
+                    <p class="card-text" th:text=" 'Instructor Name :         '+${tempCourse.instructorName}"></p>
+                    <a th:href="@{/register-course(courseId=${tempCourse.id},studentId=${student.id})}"
+                       class="btn btn-info btn-md  btn btn-warning">Enroll
+                    </a>
+                    <br><br>
+                </div>
+            </div>
+            <br><br>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+
+    <title>Student Home Page</title>
+</head>
+<body>
+<div class="container text-center">
+    <br><br><br>
+
+    <h3 th:text="'Welcome '+ ${student.firstName}+' !!!!'"></h3>
+
+    <br><br>
+    <h4><a th:href="@{/view-details(studentId=${student.Id})} " class="btn  btn-lg btn btn-primary">My Account</a></h4>
+    <br><br>
+    <a th:href="@{/courses(studentId=${student.Id})}"
+       class="btn btn-primary btn-lg mb-3">Courses Offered</a>
+
+    <br><br>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit"   class="btn  btn-lg  btn btn-primary" value=" Logout"/>
+    </form>
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
