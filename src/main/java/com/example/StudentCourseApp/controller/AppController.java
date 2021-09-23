@@ -89,9 +89,7 @@ public class AppController {
     public String viewDetails(@RequestParam("studentId") int theStudentId, Model theModel)
     {
         Student theStudent = studentService.findById(theStudentId);
-        System.out.println(theStudent.getCourses());
         theModel.addAttribute("student",theStudent);
-        System.out.println("Hello");
         return "view-details";
     }
 
@@ -99,7 +97,6 @@ public class AppController {
     public String updateStudent(@RequestParam("studentId") int theStudentId, Model theModel)
     {
         Student theStudent = studentService.findById(theStudentId);
-        System.out.println(theStudent.getCourses());
         theModel.addAttribute("student",theStudent);
         return "student-update-form";
 

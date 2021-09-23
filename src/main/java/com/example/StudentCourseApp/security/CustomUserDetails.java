@@ -34,6 +34,7 @@ public class CustomUserDetails implements UserDetails {
     {
         return this.student.getId();
     }
+
     public Student getStudent()
     {
         return this.student;

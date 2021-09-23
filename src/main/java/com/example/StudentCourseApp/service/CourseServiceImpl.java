@@ -15,8 +15,11 @@ import java.util.Optional;
 @Service
 public class CourseServiceImpl implements CourseService{
 
-    @Autowired
-    private CourseDao courseDao;
+    private final CourseDao courseDao;
+
+    public CourseServiceImpl(CourseDao courseDao) {
+        this.courseDao= courseDao;
+    }
 
 
     @Override

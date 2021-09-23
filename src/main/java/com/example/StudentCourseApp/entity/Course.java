@@ -47,8 +47,9 @@ public class Course {
 
     }
 
-    public Course(String courseName, float rating, String instructorName)
+    public Course(int id,String courseName, float rating, String instructorName)
     {
+        this.id=id;
         this.courseName = courseName;
         this.rating = rating;
         this.instructorName = instructorName;
