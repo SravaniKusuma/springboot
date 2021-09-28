@@ -3,6 +3,7 @@ package com.example.StudentCourseApp.entity;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
@@ -19,24 +20,28 @@ public class Student {
     private int id;
 
     @Column(name="first_name")
-    @NotNull(message=" This field is required")
+    @NotNull(message=" Enter your first name")
+    @Pattern(regexp = "[a-zA-z]*",message="only alphabets are allowed")
     private String firstName;
 
     @Column(name="last_name")
-    @NotNull(message=" This field is required")
+    @NotNull(message="Enter your last name")
+    //@Pattern(regexp = "[a-zA-z]*",message="only alphabets are allowed")
     private String lastName;
 
     @Column(name="phone_number")
-    @NotNull(message=" This field is required")
-    @Pattern(regexp = "^[0-9]{10}",message = "must contain 10 digits")
+    @NotNull(message=" Enter your phone Number")
+   // @Pattern(regexp = "^[0-9]{10}",message = "must contain 10 digits")
     private String phoneNumber;
 
     @Column(name="email")
     @NotNull(message=" This field is required")
+    @Email(message = "Enter valid email")
     private String email;
 
     @Column(name="password")
     @NotNull(message=" This field is required")
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$",message = "Password must contain atleast one uppercase alphabet, atleast one lowercase alphabet, atleast one digit, atleast one special character and minimum 6 in length")
     private String password;
 
 

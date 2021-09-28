@@ -53,7 +53,7 @@
             <div class="form-group row">
                 <label class="col-4 col-form-label">Rating </label>
                 <div class="col-8">
-                    <input type="text" th:field="*{rating}" class="form-control"
+                    <input type="text"  th:field="*{rating}" class="form-control"
                            placeholder="Rating" />
                     <p th:if ="${#fields.hasErrors('rating')}" th:errorclass="error" th:errors="*{rating}" />
 

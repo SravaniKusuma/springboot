@@ -3,10 +3,7 @@ package com.example.StudentCourseApp.entity;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +18,7 @@ public class Course {
 
     @Column(name="course_name")
     @NotBlank(message = "This field is mandatory")
+    @Pattern(regexp = "[a-zA-z0-9\\s]*",message="only alphabets and digits allowed")
     private String courseName;
 
     @Column(name = "rating")
@@ -29,7 +27,8 @@ public class Course {
     private float rating;
 
     @Column(name="instructor_name")
-   @NotBlank(message = "This field is mandatory")
+    @NotBlank(message = "This field is mandatory")
+    @Pattern(regexp = "[a-zA-z]*",message="only alphabets are allowed")
     private String instructorName;
 
 

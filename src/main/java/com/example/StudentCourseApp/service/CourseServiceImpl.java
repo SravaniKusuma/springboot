@@ -1,10 +1,7 @@
 package com.example.StudentCourseApp.service;
 
 import com.example.StudentCourseApp.dao.CourseDao;
-import com.example.StudentCourseApp.dao.CourseRepository;
-import com.example.StudentCourseApp.dao.StudentRepository;
 import com.example.StudentCourseApp.entity.Course;
-import com.example.StudentCourseApp.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +14,7 @@ public class CourseServiceImpl implements CourseService{
 
     private final CourseDao courseDao;
 
+    @Autowired
     public CourseServiceImpl(CourseDao courseDao) {
         this.courseDao= courseDao;
     }

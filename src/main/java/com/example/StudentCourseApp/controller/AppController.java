@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,25 +49,18 @@ public class AppController {
 
 
     @PostMapping("/saveStudent")
-    public String saveStudent(@Valid @ModelAttribute("student") Student theStudent,Errors errors, Model theModel)
+    public String saveStudent(@Valid @ModelAttribute("student") Student theStudent,BindingResult bindingResult, Model theModel)
     {
 
 
-        if(null != errors && errors.getErrorCount() > 0)
+        if(bindingResult.hasErrors())
         {
             return "student-signup";
         }
-        List<Student> students= studentService.findAll();
 
-        for(Student tempStudent: students)
+        if(studentService.studentExists(theStudent.getEmail()))
         {
-
-            if(tempStudent.getEmail().equals(theStudent.getEmail()))
-            {
-
-                return "user-exists";
-            }
-
+            bindingResult.addError(new FieldError("student","email","Email address already exists"));
         }
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -107,6 +101,7 @@ public class AppController {
     {
         if(theBindingResult.hasErrors())
         {
+            System.out.println(theBindingResult);
             return "student-update-form";
         }
         int theStudentId= theStudent.getId();

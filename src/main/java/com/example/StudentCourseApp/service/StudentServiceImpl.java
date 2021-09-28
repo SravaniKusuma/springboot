@@ -13,6 +13,7 @@ public class StudentServiceImpl implements StudentService{
 
     private final StudentRepository studentRepository;
 
+    @Autowired
     public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
@@ -54,5 +55,13 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student findByEmail(String s) {
         return studentRepository.findByEmail(s);
+    }
+
+    @Override
+    public boolean studentExists(String email)
+    {
+        if(studentRepository.findByEmail(email)!= null)
+            return true;
+        return false;
     }
 }
